@@ -21,6 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     cartodb.ssh.forward_x11 = true
 
     cartodb.vm.network :forwarded_port, guest: 3000, host: 3000
+    cartodb.vm.network :forwarded_port, guest: 8080, host: 8080
     cartodb.vm.network :forwarded_port, guest: 8181, host: 8181
 
     cartodb.vm.provider :virtualbox do |v|
