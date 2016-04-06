@@ -105,6 +105,7 @@ sudo apt-get install imagemagick unp zip -y
 source /home/vagrant/.profile
 
 RAILS_ENV=development bundle install
+npm install -g grunt-cli
 npm install
 
 export CPLUS_INCLUDE_PATH=/usr/include/gdal
