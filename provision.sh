@@ -11,14 +11,14 @@ sudo apt-get install git -y
 sudo apt-get install python-software-properties -y
 
 # Postgres
-sudo add-apt-repository ppa:cartodb/postgresql-9.3 && sudo apt-get update
-sudo apt-get install libpq5 libpq-dev postgresql-client-9.3 postgresql-client-common -y
-sudo apt-get install postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 postgresql-plpython-9.3 -y
+sudo add-apt-repository ppa:cartodb/postgresql-9.5 && sudo apt-get update
+sudo apt-get install libpq5 libpq-dev postgresql-client-9.5 postgresql-client-common -y
+sudo apt-get install postgresql-9.5 postgresql-contrib-9.5 postgresql-server-dev-9.5 postgresql-plpython-9.5 -y
 
-sudo rm /etc/postgresql/9.3/main/pg_hba.conf
-sudo su -c 'echo "local all postgres trust" >> /etc/postgresql/9.3/main/pg_hba.conf'
-sudo su -c 'echo "local all all trust" >> /etc/postgresql/9.3/main/pg_hba.conf'
-sudo su -c 'echo "host all all 127.0.0.1/32 trust" >> /etc/postgresql/9.3/main/pg_hba.conf'
+sudo rm /etc/postgresql/9.5/main/pg_hba.conf
+sudo su -c 'echo "local all postgres trust" >> /etc/postgresql/9.5/main/pg_hba.conf'
+sudo su -c 'echo "local all all trust" >> /etc/postgresql/9.5/main/pg_hba.conf'
+sudo su -c 'echo "host all all 127.0.0.1/32 trust" >> /etc/postgresql/9.5/main/pg_hba.conf'
 
 sudo service postgresql restart
 
@@ -42,7 +42,7 @@ sudo apt-get install ogr2ogr2-static-bin -y
 
 # PostGis
 sudo apt-get install libxml2-dev -y
-sudo apt-get install liblwgeom-2.1.8 postgis postgresql-9.3-postgis-2.2 postgresql-9.3-postgis-scripts -y
+sudo apt-get install liblwgeom-2.2.2 postgis postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts -y
 sudo createdb -T template0 -O postgres -U postgres -E UTF8 template_postgis
 sudo createlang plpgsql -U postgres -d template_postgis
 psql -U postgres template_postgis -c 'CREATE EXTENSION postgis;CREATE EXTENSION postgis_topology;'
