@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     cartodb.vm.network "private_network", ip: "192.168.20.100"
 
     cartodb.vm.synced_folder ".", "/vagrant", disabled: true
-    cartodb.vm.synced_folder "../cartodb/cartodb", "/opt/cartodb", type: "nfs"
+    cartodb.vm.synced_folder "../cartodb/cartodb", "/opt/cartodb", type: "nfs", mount_options: ['actimeo=1']
     cartodb.vm.synced_folder "../cartodb/windshaft-cartodb", "/opt/windshaft-cartodb", type: "nfs"
     cartodb.vm.synced_folder "../cartodb/cartodb-postgresql", "/opt/cartodb-postgresql", type: "nfs"
     cartodb.vm.synced_folder "../cartodb/cartodb-sql-api", "/opt/cartodb-sql-api", type: "nfs"
